@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: aqua;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    text-align: center;
+}
+
+.fondo {
+    position: absolute;
+    display: flex;
+}
+
+.cuadro {
+    font-size: 3rem;
+    width: 50%;
+    height: auto;
+    max-width: 600px;
+    color: black;
+}
+
+#cuentaRegresiva {
+    font-size: 3rem;
+    line-height: 0;
+    letter-spacing: .3em;
+    position: fixed;
+    top: 50%;
+}
+
+.cuadro1 {
+    margin-top: 80px;
+    padding: 50px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cuadro2 {
+    margin-top: 80px;
+    padding: 50px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.esqueletoOff {
+    width: 550px;
+    height: 600px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    background-image: url("../img/esqueleto2.png");
+}
+
+.esqueletoOff.on {
+    background-image: url("../img/esqueleto1.gif");
+}
+
+.esqueletoOnOff {
+    width: 200px;
+    height: 100px;
+    border-radius: 1vh;
+    position: fixed;
+    color: azure;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+}
+
+.esqueletoOnOff:hover {
+    background-color: brown;
+}
+
+.fondoBoton {
+    display: flex;
+    justify-content: center;
+    margin-top: 80%;
+}
