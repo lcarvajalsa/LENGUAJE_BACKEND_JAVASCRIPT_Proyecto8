@@ -28,29 +28,46 @@ function cuentaRegresiva(tiempoFaltante, reloj, mensaje) {
         }
     }, 1000)
 };
-let esqueleto = "off";
-let esqueletoStop = document.getElementById("esqueletoquieto");
-let botonSonido = new Audio('../sound/botonbailar.mp3');
-let botonAudio = new Audio('../sound/audio.mp3');
+let papaNoel = "off";
+let papaNoelStop = document.getElementById("papaNoelQuieto");
+let botonSonido = new Audio('../sound/vaile.mp3');
+let botonAudio = new Audio('../sound/vaile.mp3');
 
 function bailar() {
-    if (esqueleto == "off") {
-        esqueleto = "on";
-        esqueletoStop.classList.add("on");
-        esqueletoStop.addEventListener('click', () => {
+    if (papaNoel == "off") {
+        papaNoel = "on";
+        papaNoelStop.classList.add("on");
+        papaNoelStop.addEventListener('click', () => {
             botonSonido.play();
         })
-        esqueletoStop.addEventListener('click', () => {
-            botonAudio.play();
-        })
-        console.log("On");
+
+        console.log("off");
     } else {
-        esqueleto = "off"
-        esqueletoStop.classList.remove("on");
-        esqueletoStop.addEventListener('click', () => {
+        papaNoel = "off"
+        papaNoelStop.classList.remove("off");
+        papaNoelStop.addEventListener('click', () => {
             botonAudio.pause();
         })
         console.log("Off");
+    }
+}
+
+function bailar1() {
+    if (papaNoel == "off") {
+        papaNoel = "on";
+        papaNoelStop.classList.add("on");
+        papaNoelStop.addEventListener('click', () => {
+            botonSonido.play();
+        })
+
+        console.log("On");
+    } else {
+        papaNoel = "on"
+        papaNoelStop.classList.remove("on");
+        papaNoelStop.addEventListener('click', () => {
+            botonAudio.pause();
+        })
+        console.log("On");
     }
 }
 cuentaRegresiva('nov 25 2023 00:00:00 GMT-500', 'cuentaRegresiva', '!Feliz Navidad');

@@ -1,73 +1,110 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 body {
+    margin: 0;
+    /*margen*/
     min-height: 100vh;
-    background-color: aqua;
-    display: flex;
-    justify-content: baseline;
+    /*ajuste altura de la paltalla*/
+    display: grid;
+    /*justifijar*/
+    justify-content: center;
+    /*justificar contenido vertical centrado */
     align-items: center;
-    text-align: center;
+    /*justificar contenido horizontal  centrado */
+    background-color: aliceblue;
+    /*color*/
 }
 
 .fondo {
-    position: absolute;
+    border: 1px solid aqua;
+    /*borde solido y color*/
+    width: 700px;
+    /*Tamaño vertical*/
+    height: 200px;
+    /*Tamaño horizontal*/
     display: flex;
+    /*ajuste en el tamaño de la pantalla*/
+    align-items: center;
+    /*contenido dentro vertical*/
+    border-radius: 2vh;
+    /*borde de la caja*/
+    font-family: monospace;
+    /*formato de la fuente*/
+    font-size: 2rem;
+    /*tamaño de la fuente*/
+    color: rgb(17, 20, 13);
+    /* color de la fuente*/
 }
 
 .cuadro {
-    font-size: 3rem;
-    width: 50%;
-    height: auto;
-    max-width: 600px;
-    color: black;
+    border: 2px solid brown;
+    /*borde solido*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /*direccion del contenido de la caja*/
+    border-radius: 2vh;
+    /*borde de la caja*/
 }
 
 #cuentaRegresiva {
-    font-size: 3rem;
-    line-height: 0;
-    letter-spacing: .3em;
-    position: fixed;
-    top: 50%;
+    border: 2px solid blueviolet;
+    display: flex;
+    /*ajuste en el tamaño de la pantalla*/
+    justify-content: center;
+    /*justificar contenido vertical centrado */
+    align-items: center;
+    /*justificar contenido horizontal centrado */
+    flex-direction: column;
+    /*direccion del contenido de la caja*/
+    border-radius: 2vh;
+    /*borde de la caja*/
+}
+
+.fondoBoton {
+    border: 2px solid aqua;
+    display: flex;
+    width: 100px;
+    height: 20px;
+    flex-direction: row;
+    font-size: 20px;
 }
 
 .cuadro1 {
-    margin-top: 80px;
-    padding: 50px;
-    justify-content: space-around;
-    align-items: center;
+    background-color: rgb(54, 42, 165);
+    width: 80px;
+    height: 20px;
+    flex-direction: row;
+    border-radius: 1vh;
 }
 
 .cuadro2 {
-    margin-top: 80px;
-    padding: 50px;
-    justify-content: space-around;
-    align-items: center;
+    background-color: brown;
+    width: 80px;
+    height: 20px;
+    flex-direction: row;
+    border-radius: 1vh;
 }
 
-.esqueletoOff {
-    width: 550px;
-    height: 600px;
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    background-image: url("../img/esqueleto2.png");
-}
-
-.esqueletoOff.on {
-    background-image: url("../img/esqueleto1.gif");
-}
-
-.esqueletoOnOff {
+.papaNoelOff {
+    background-color: aqua;
     width: 200px;
-    height: 100px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    background-image: url("../img/papa1.png");
+    background-size: 200px 200px;
+    background-repeat: no-repeat;
+}
+
+.papaNoelOff.on {
+    background-image: url("../img/papa2.gif");
+}
+
+.papaNoelOnOff {
+    width: 50px;
+    height: 20px;
     border-radius: 1vh;
     position: fixed;
-    color: azure;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -75,12 +112,6 @@ body {
     cursor: pointer;
 }
 
-.esqueletoOnOff:hover {
-    background-color: brown;
-}
-
-.fondoBoton {
-    display: flex;
-    justify-content: center;
-    margin-top: 80%;
+.papaNoelOnOff:hover {
+    background-color: burlywood;
 }
