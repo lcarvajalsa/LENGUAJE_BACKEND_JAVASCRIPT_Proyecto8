@@ -1,10 +1,41 @@
+let papanoel = "off"
+let noelplay = document.getElementById("play");
+let noelpause = document.getElementById("pause");
+let noelStop = document.getElementById("baileOff");
+let botonAudio = new Audio('./sound/baile.mp3');
+
+botonAudio.disabled = true;
+
+function bailar() {
+    if (papanoel == "off") {
+        noelplay.addEventListener('click', () => {
+            botonAudio.play();
+            botonAudio.disabled = true;
+        })
+    }
+}
+
+function nobailar() {
+    noelpause.addEventListener('click', () => {
+        botonAudio.pause();
+        botonAudio.disabled = false;
+
+
+    })
+}
+
 function obtenerTiempoFaltante(fechaLimite) {
     let ahora = new Date();
-    tiempoFaltante = (new Date(fechaLimite) - ahora + 1000) / 1000;
-    segundosFaltantes = ('0' + Math.floor(tiempoFaltante % 60)).slice(-2);
-    minutosFaltantes = ('0' + Math.floor(tiempoFaltante / 60 % 60)).slice(-2);
-    horasFaltantes = ('0' + Math.floor(tiempoFaltante / 3600 % 24)).slice(-2);
-    diasFaltantes = ('0' + Math.floor(tiempoFaltante / (3600 * 24))).slice(-2);
+
+    let tiempoFaltante = (new Date(fechaLimite) - ahora + 1000) / 1000;
+
+    let segundosFaltantes = ('0' + Math.floor(tiempoFaltante % 60)).slice(-2);
+
+    let minutosFaltantes = ('0' + Math.floor(tiempoFaltante / 60 % 60)).slice(-2);
+
+    let horasFaltantes = ('0' + Math.floor(tiempoFaltante / 3600 % 24)).slice(-2);
+
+    let diasFaltantes = ('0' + Math.floor(tiempoFaltante / (3600 * 24))).slice(-2);
 
     return {
         segundosFaltantes,
@@ -13,61 +44,34 @@ function obtenerTiempoFaltante(fechaLimite) {
         diasFaltantes,
         tiempoFaltante,
     }
-}
-//console.log(obtenerTiempoFaltante('Dec 25 2023 00:00:00 GMT-0500'));//
-function cuentaRegresiva(tiempoFaltante, reloj, mensaje) {
-    const e = document.getElementById(reloj);
+};
+
+function cuentaRegresiva(tiempoFaltante, mensaje) {
+    const titulo = document.getElementById("titulo");
+    const dias = document.getElementById("dias");
+    const horas = document.getElementById("horas");
+    const minutos = document.getElementById("minutos");
+    const segundos = document.getElementById("segundos");
 
     const tiempoActual = setInterval(() => {
         let t = obtenerTiempoFaltante(tiempoFaltante);
-        e.innerHTML = `${t.diasFaltantes}d:${t.horasFaltantes}h:${t.minutosFaltantes}m:${t.segundosFaltantes}s`;
+        dias.innerHTML = t.diasFaltantes;
+        horas.innerHTML = t.horasFaltantes;
+        minutos.innerHTML = t.minutosFaltantes;
+        segundos.innerHTML = t.segundosFaltantes;
 
-        if (t.tiempoFaltante < 0) {
+        if (t.tiempoFaltante < 1) {
             clearInterval(tiempoActual);
-            e.innerHTML = mensaje;
+            const tituloa = "";
+            titulo.innerHTML = mensaje;
+            tituloantes.innerHTML = tituloa;
+            dias.innerHTML = '00';
+            horas.innerHTML = '00';
+            minutos.innerHTML = '00';
+            segundos.innerHTML = '00';
+            noelStop.classList.add("on");
         }
     }, 1000)
-};
-let papaNoel = "off";
-let papaNoelStop = document.getElementById("papaNoelQuieto");
-let botonSonido = new Audio('../sound/vaile.mp3');
-let botonAudio = new Audio('../sound/vaile.mp3');
-
-function bailar() {
-    if (papaNoel == "off") {
-        papaNoel = "on";
-        papaNoelStop.classList.add("on");
-        papaNoelStop.addEventListener('click', () => {
-            botonSonido.play();
-        })
-
-        console.log("off");
-    } else {
-        papaNoel = "off"
-        papaNoelStop.classList.remove("off");
-        papaNoelStop.addEventListener('click', () => {
-            botonAudio.pause();
-        })
-        console.log("Off");
-    }
 }
 
-function bailar1() {
-    if (papaNoel == "off") {
-        papaNoel = "on";
-        papaNoelStop.classList.add("on");
-        papaNoelStop.addEventListener('click', () => {
-            botonSonido.play();
-        })
-
-        console.log("On");
-    } else {
-        papaNoel = "on"
-        papaNoelStop.classList.remove("on");
-        papaNoelStop.addEventListener('click', () => {
-            botonAudio.pause();
-        })
-        console.log("On");
-    }
-}
-cuentaRegresiva('nov 25 2023 00:00:00 GMT-500', 'cuentaRegresiva', '!Feliz Navidad');
+cuentaRegresiva('Nov 18 2023 23:15:00 GMT-0500', '¡Feliz Navidad!')

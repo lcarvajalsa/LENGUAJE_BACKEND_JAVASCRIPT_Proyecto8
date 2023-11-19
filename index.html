@@ -11,29 +11,40 @@
 
 <body>
 
-    <div class="fondo">
-
-        <div class="cuadro">Fata para Navidad
-            <div id="cuentaRegresiva"></div>
-            <div class="fondoBoton">
-                <div class="cuadro1">
-                    <div class="papaNoelOnOff" onclick="bailar()">Play</div>
-
-                </div>
-                <div class="cuadro2">
-
-                    <div class="papaNoelOnOff" onclick="bailar1()">Pausa</div>
-                </div>
-            </div>
-
-        </div>
-        <div class="Baile">
-            <div class="papaNoelOff" id="papaNoelQuieto">
+    <div class="navidad">
+        <div class="cont">
+            <div class="titulo1">
+                <h1 id="tituloantes">Falta para Navidad</h1>
+                <h1 id="titulo"></h1>
 
             </div>
+            <div class="estilo">
+                <div class="campo" id="dias"></div>
+                <div class="campo" id="horas"></div>
+                <div class="campo" id="minutos"></div>
+                <div class="campo" id="segundos"></div><br>
+
+                <div class="titulos">
+                    <span class="di">D</span>
+                    <span class="di">H</span>
+                    <span class="di">M</span>
+                    <span class="di">S</span>
+                </div>
+
+                <audio src="./sound/sonido.mp3"></audio>
+
+
+
+                <div id="play" onclick="bailar()">play</div>
+                <div id="pause" onclick="nobailar()">pause</div>
+            </div>
         </div>
+        <div class="contBaile">
+            <div class="papaOff" id="baileOff">
+            </div>
+        </div>
+        <script src="./navidad.js"></script>
     </div>
-
 
     <script src="./js/string.js"></script>
 </body>
